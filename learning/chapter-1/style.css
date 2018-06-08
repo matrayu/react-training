@@ -1,0 +1,33 @@
+body {
+    background-color: #f5f5f5;
+    color: #181818;
+}
+
+h1 {
+    padding: 120px;
+    text-align: center;
+    border-bottom: 5px solid;
+    font-size: 5rem;
+}
+
+p{
+    text-align: left;
+    font-size: 1.1em;
+    color: rgb(35, 95, 11);
+}
+
+p::before {
+    content: "Before Paragraph ";
+    text-align: left;
+    font-size: 2rem;
+    color: rgb(4, 77, 160);
+    font-family: monospace;
+}
+
+p::after {
+    content: " After Paragraph";
+    text-align: left;
+    font-size: 2rem;
+    color: rgb(160, 4, 4);
+    font-family: monospace;
+}
