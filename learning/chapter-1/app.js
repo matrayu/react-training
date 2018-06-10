@@ -50,9 +50,15 @@ class TeamList extends React.Component{
 class TeamList extends React.Component{
     render(){
 
+        // fetching the teams data and converting them into react representable data
         const teams = Seed.iplteams.map((team)=>{
             return <Team key={team.id} name={team.name} team={team.team} description={team.description} slogon={team.slogon} img={team.image} votes={team.votes}/>
         });
+
+
+        // sorting the teams
+        teams.sort((a,b)=>{return b.props.votes-a.props.votes});
+
 
         return teams;
     }
