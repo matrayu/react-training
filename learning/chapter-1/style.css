@@ -10,24 +10,60 @@ h1 {
     font-size: 5rem;
 }
 
-p{
-    text-align: left;
-    font-size: 1.1em;
-    color: rgb(35, 95, 11);
+.content {
+    text-align: center;
 }
 
-p::before {
-    content: "Before Paragraph ";
-    text-align: left;
-    font-size: 2rem;
-    color: rgb(4, 77, 160);
-    font-family: monospace;
+.team {
+    /* border: 2px solid; */
+    margin: 10px 0px 10px 0px;
 }
 
-p::after {
-    content: " After Paragraph";
-    text-align: left;
+img {
+    float: left;
+    width: 125px;
+    margin-right: 50px;
+}
+
+.votes {
+    position: relative;
+    float: right;
+    font-size: 20px;
+    text-align: center;
+    margin-right: 50px;
+}
+
+.up {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    border-top: none;
+    border-top-left-radius: 100%;
+    border-top-right-radius: 100%;
+}
+
+.down {
+    position: relative;
+    background-color: green;
+    width: 50px;
+    height: 50px;
+    border-bottom: none;
+    border-bottom-left-radius: 100%;
+    border-bottom-right-radius: 100%;
+}
+
+.shortName {
     font-size: 2rem;
-    color: rgb(160, 4, 4);
-    font-family: monospace;
+    text-align: left;
+    color: #ff2392;
+}
+
+.name {
+    text-transform: capitalize;
+    font-size: 1.5rem;
+}
+
+.description {
+    margin-top: 10px;
 }
