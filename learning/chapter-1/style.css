@@ -1,10 +1,10 @@
 body {
     background-color: #f5f5f5;
     color: #181818;
+    margin: 10px;
 }
 
 h1 {
-    padding: 120px;
     text-align: center;
     border-bottom: 5px solid;
     font-size: 5rem;
@@ -17,6 +17,8 @@ h1 {
 .team {
     /* border: 2px solid; */
     margin: 10px 0px 10px 0px;
+    padding: 10px;
+    border-top: 1px solid;
 }
 
 img {

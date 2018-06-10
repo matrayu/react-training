@@ -3,7 +3,7 @@ window.Seed = (function () {
         return (Math.random() * 15).toFixed(0);
     }
 
-    const IPLTeams = [{
+    const iplteams = [{
         id: 1,
         name: "Chennai Super Kings",
         team: "CSK",
@@ -68,4 +68,10 @@ window.Seed = (function () {
         image: "./images/srh.jpg",
         votes: generateRandomVotes()
     }];
-});
+
+    return {
+        iplteams: iplteams
+    };
+
+
+}());

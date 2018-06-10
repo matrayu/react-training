@@ -3,8 +3,7 @@ window.Seed = (function () {
     return Math.floor((Math.random() * 50) + 15);
   }
 
-  const products = [
-    {
+  const products = [{
       id: 1,
       title: 'Yellow Pail',
       description: 'On-demand sand castle construction expertise.',
@@ -42,5 +41,7 @@ window.Seed = (function () {
     },
   ];
 
-  return { products: products };
+  return {
+    products: products
+  };
 }());
