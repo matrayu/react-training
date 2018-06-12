@@ -1,6 +1,6 @@
 window.Seed = (function () {
     function generateRandomVotes() {
-        return (Math.random() * 15).toFixed(0);
+        return (Math.random() * 15+12).toFixed(0);
     }
 
     const iplteams = [{

@@ -1,5 +1,5 @@
 class Team extends React.Component{
-
+  
     constructor(props){
         super(props);
 
@@ -13,8 +13,26 @@ class Team extends React.Component{
     }
 
     handleDownVote(){
+        this.props.onDownVote(this.props.teamID);
+    }
+
+    /*
+    
+    // If we dont like to bind the function in the constructor we can use arrow function
+    // as arrow function doesn't support 'this' keyword, the component is bound to the this rather than the function.
+
+
+    
+    handleDownVote = ()=>{
+        this.props.onDownVote(this.props.teamID);
+    }
+    
+    handleUpVote = ()=>{
         this.props.onUpVote(this.props.teamID);
     }
+
+    
+    */
 
 
     render(){
@@ -46,7 +64,10 @@ class TeamList extends React.Component{
 
         this.state = {
             iplteams : []
-        }
+        };
+
+        this.handleTeamUpVote = this.handleTeamUpVote.bind(this);
+        this.handleTeamDownVote = this.handleTeamDownVote.bind(this);
     }
 
 
@@ -60,7 +81,7 @@ class TeamList extends React.Component{
 
         // fetching the teams data and converting them into react representable data
         const teams = this.state.iplteams.map((team)=>{
-            return <Team key={team.id} teamID={'team '+team.id} name={team.name} team={team.team} description={team.description} slogon={team.slogon} img={team.image} votes={team.votes} onUpVote={this.handleTeamUpVote} onDownVote={this.handleTeamDownVote}/>
+            return <Team teamID={team.id} key={'team '+team.id} name={team.name} team={team.team} description={team.description} slogon={team.slogon} img={team.image} votes={team.votes} onUpVote={this.handleTeamUpVote} onDownVote={this.handleTeamDownVote}/>
         });
 
 
@@ -72,12 +93,38 @@ class TeamList extends React.Component{
     }
 
     handleTeamUpVote(teamID){
-        console.log("Team ID is ==> ",teamID);
+        const nextTeams = this.state.iplteams.map((team)=>{
+            if(team.id == teamID){
+                return Object.assign({}, team, {
+                    votes : Number(team.votes)+1
+                });
+            }else{
+                return team;
+            }
+        });
+        
+        
+        // Always treat state as immutable, 
+        this.setState({
+            iplteams : nextTeams
+        });
     }
 
 
     handleTeamDownVote(teamID) {
-        console.log("Team ID is ==> ", teamID);
+         const nextTeams = this.state.iplteams.map((team) => {
+             if (team.id === teamID) {
+                 return Object.assign({}, team, {
+                     votes: team.votes - 1,
+                 });
+             } else {
+                 return team;
+             }
+         });
+
+         this.setState({
+             iplteams: nextTeams
+         });
     }
 
 
