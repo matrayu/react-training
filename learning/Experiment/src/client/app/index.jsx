@@ -12,12 +12,16 @@ class Avator extends React.Component{
 
 class Form extends React.Component{
 
+
     constructor(props){
         super(props);
 
         this.state = {
             login : true
         };
+
+        
+
     }
 
 
@@ -29,6 +33,16 @@ class Form extends React.Component{
         </div>);
     }
 }
+
+
+    From.propTypes = {
+        login: PropTypes.bool
+    }
+
+    From.defaultProps = {
+        login: false
+    }
+
 
 class Login extends React.Component{
 
