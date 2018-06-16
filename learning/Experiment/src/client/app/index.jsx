@@ -1,100 +1,67 @@
-class Avator extends React.Component{
-    render(){
+class Form extends React.Component {
 
-        return(<div className="avator">
-            <div>
-                <img src="./images/avator.png" alt="avator"/>
-            </div>
-        </div>);
-    }
-}
-
-
-class Form extends React.Component{
-
-
-    constructor(props){
+    constructor(props) {
         super(props);
-
         this.state = {
-            login : true
-        };
+            data: ""
+        }
 
-        
-
+        this.handleDataChange = this.handleDataChange.bind(this);
     }
 
-
-
-    render(){
-        return(<div>
-            <Avator/>
-            <Login/>
-        </div>);
+    componentDidMount() {
+        this.setState({
+            data: "Initial Value"
+        });
     }
+
+    render() {
+        return (
+            <div>
+                <Input modification={this.handleDataChange} />
+                <br />
+                <Output data={this.state.data} />
+            </div>
+        );
+    }
+
+    handleDataChange(value) {
+        this.setState({
+            data: value
+        });
+    }
+
 }
 
 
-    From.propTypes = {
-        login: PropTypes.bool
-    }
-
-    From.defaultProps = {
-        login: false
-    }
-
-
-class Login extends React.Component{
-
+class Input extends React.Component {
 
     constructor(props) {
         super(props);
 
-        this.state = {
-            register: false
-        }
-
-        this.registerForm = this.registerForm.bind(this); 
+        this.addedText = this.addedText.bind(this);
     }
 
-    registerForm() {
-        this.state.register ? this.setState({ register: false }) : this.setState({ register: true });
-    }
     render() {
-        return (<div>
-            <div>
-                <label htmlFor="email">Email : </label>
-                <input id="email" type="text" placeholder="email" pattern=".+@.+" title="Please follow example@xyz.com pattern" />
-                <label htmlFor="pwd">Password : </label>
-                <input id="pwd" type="password" placeholder="password" />
-                <div className="buttons">
-                    <button type="submit">login</button>
-                    <button register={this.state.register} onClick={this.registerForm}>Register</button>
-                </div>
-            </div>
-        </div>);
-    }
-}
-
-class RegisterForm extends React.Component{
-    
-    render(){
-        return(
-            <div>
-                <label htmlFor="fName">First Name</label>
-                <input id="fName" type="text"/>
-                <label htmlFor="lName">Last Name</label>
-                <input id="lName" type="text"/>
-                <label id="loginEmail">Email</label>
-                <input id="loginEmail" type="email" />
-                <label id="loginPwd">Password</label>
-                <input id="loginPwd" type="password" />
-                <label id="verifyPwd">Verify Password</label>
-                <input id="verifyPwd" type="password" />
-                <button value="Register"></button>
-            </div>
+        return (
+            <textarea placeholder="Enter some data" rows="10" cols="75" onChange={this.addedText}></textarea>
         );
     }
+
+    addedText(e) {
+        let value = e.target.value;
+        this.props.modification(value);
+    }
+
+}
+
+/* Stateless component */
+
+const Output = function (props) {
+
+    return (
+        <div className="output">{props.data}</div>
+    );
 }
 
 ReactDOM.render(<Form />, document.getElementById("login"));
