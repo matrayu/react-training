@@ -54,7 +54,7 @@ class Login extends React.Component{
             register: false
         }
 
-        this.registerForm = this.registerForm.bind(this);
+        this.registerForm = this.registerForm.bind(this); 
     }
 
     registerForm() {
