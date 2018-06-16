@@ -8,12 +8,14 @@ class Form extends React.Component {
 
         this.handleDataChange = this.handleDataChange.bind(this);
     }
+    /*
+        componentDidMount() {
+            this.setState({
+                data: "Initial Value"
+            });
+        }
+    */
 
-    componentDidMount() {
-        this.setState({
-            data: "Initial Value"
-        });
-    }
 
     render() {
         return (
@@ -44,13 +46,17 @@ class Input extends React.Component {
 
     render() {
         return (
-            <textarea placeholder="Enter some data" rows="10" cols="75" onChange={this.addedText}></textarea>
+            <div>
+                <h2>Input</h2>
+                <textarea placeholder="Enter some data" rows="10" cols="75" onChange={this.addedText}></textarea>
+            </div>
         );
     }
 
     addedText(e) {
         let value = e.target.value;
         this.props.modification(value);
+        // console.log(e.nativeEvent);
     }
 
 }
@@ -60,7 +66,10 @@ class Input extends React.Component {
 const Output = function (props) {
 
     return (
-        <div className="output">{props.data}</div>
+        <div>
+            <h2>Output</h2>
+            <div className="output">{props.data}</div>
+        </div>
     );
 }
 
