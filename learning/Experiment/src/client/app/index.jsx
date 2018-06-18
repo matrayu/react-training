@@ -17,21 +17,26 @@ class NameList extends React.Component {
         super(props);
 
         this.state = {
-            names: []
+            names: [],
+            name: ""
         };
 
         this.onFromSubmit = this.onFromSubmit.bind(this);
+        this.onNameChange = this.onNameChange.bind(this);
     }
 
     onFromSubmit = (e) => {
         console.log(this.refs);
         const nameList = this.state.names;
-        const newName = this.refs.fname.value;
+        const newName = this.refs.fname.value; 
+        /**
+         * with out using refs ==>   const newName = this.state.name;
+         */
         nameList.push(newName);
         /**
          * or using spread operator
          *  
-         *  nameList = [...this.state.names, newName]
+         *  nameList = [...this.state.names, this.state.name]
          * 
          **/
         this.setState({
@@ -42,11 +47,21 @@ class NameList extends React.Component {
     }
 
 
+    /**
+     * Validating name as user enter
+     */
+    onNameChange = (event) => {
+        this.setState({
+            name: event.target.value
+        });
+    }
+
+
     render() {
         return (
             <div>
                 <form onSubmit={this.onFromSubmit} >
-                    <input ref="fname" placeholder="name" />
+                    <input ref="fname" placeholder="name" value={this.state.name} onChange={this.onNameChange} />
                     <input type="submit" value="Submit Name" />
                 </form>
                 <div>
