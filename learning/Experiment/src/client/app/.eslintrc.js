@@ -4,6 +4,7 @@ module.exports = {
         "es6": true
     },
     "extends": "eslint:recommended",
+    "parser": "babel-eslint",
     "parserOptions": {
         "ecmaFeatures": {
             "experimentalObjectRestSpread": true,
@@ -30,6 +31,10 @@ module.exports = {
         "semi": [
             "error",
             "always"
-        ]
+        ],
+        "token": 0,
+        "no-console": 0,
+        "no-undef": 0,
+        "no-unused-vars": 0
     }
 };
