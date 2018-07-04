@@ -1,6 +1,15 @@
 // We write the tests for the Modash library in
 // this file in the Unit Testing chapter
 
+
+// to run the file execute the following command
+/*
+
+    .\node_modules\.bin\ babel - node.cmd.\Modash.test.js
+
+*/
+
+
 import Modash from './Modash';
 
 
